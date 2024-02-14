@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { TPost } from "@/lib/types";
 
-const PostItem = ({ post }) => {
+const PostItem = ({ post }: {post:TPost}) => {
   const { id, title, imageUrl, description } = post || {};
   return (
     <div className="bg-gray-900 p-4 border-2 border-green-200 mx-2 my-2 rounded-lg shadow-md">

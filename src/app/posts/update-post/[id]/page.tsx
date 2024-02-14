@@ -1,7 +1,7 @@
 import { fetchSinglePost } from "@/lib/actions";
 import UpdatePostForm from "@/components/forms/UpdatePostForm";
 
-const UpdatePostPage = async ({ params }) => {
+const UpdatePostPage = async ({ params }: {params: {id: string}}) => {
   const id = params?.id;
   const post = await fetchSinglePost(id);
   return (

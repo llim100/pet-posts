@@ -1,18 +1,20 @@
 "use client";
 import { updatePost } from "@/lib/actions";
-import { useRef } from "react";
+//import { useRef } from "react";
 import Button from "../ui/Button";
+import { TPost } from "@/lib/types";
 
-const UpdatePostForm = ({ post }) => {
-  const ref = useRef();
+
+const UpdatePostForm = ({ post}: {post: TPost})=> {
+  //const ref = useRef();
   const { id, title, imageUrl, description } = post || {};
-  const handleUpdatePost = async (FormData) => {
-    await updatePost(id, FormData);
+  const handleUpdatePost = async (formData: FormData) => {
+    await updatePost(id, formData);
   };
 
   return (
     <form
-      ref={ref}
+      // ref={ref}
       action={handleUpdatePost}
       className="max-w-md mx-auto mt-8 p-8 bg-primary rounded shadow-md"
     >
@@ -56,7 +58,7 @@ const UpdatePostForm = ({ post }) => {
         <textarea
           id="description"
           name="description"
-          rows="4"
+          rows={4}
           defaultValue={description}
           className="mt-1 p-2 text-primary w-full border rounded-md font-semibold"
           placeholder="Enter description"

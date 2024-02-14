@@ -4,16 +4,16 @@ import Button from "@/components/ui/Button";
 import { addPost } from "@/lib/actions";
 
 const AddPostForm = () => {
-  const ref = useRef();
+  //const ref = useRef();
 
-  const addBlogHandler = async (FormData) => {
-    await addPost(FormData);
-    ref?.current?.reset();
+  const addBlogHandler = async (formData: FormData) => {
+    await addPost(formData);
+    //ref?.current?.reset();
   };
 
   return (
     <form
-      ref={ref}
+      //ref={ref}
       action={addBlogHandler}
       className="max-w-md mx-auto mt-8 p-8 bg-primary rounded shadow-md"
     >
@@ -57,7 +57,7 @@ const AddPostForm = () => {
         <textarea
           id="description"
           name="description"
-          rows="4"
+          rows={4}
           className="mt-1 p-2 text-primary w-full border rounded-md font-semibold"
           placeholder="Enter description"
         ></textarea>

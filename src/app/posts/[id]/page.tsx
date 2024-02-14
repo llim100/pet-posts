@@ -2,7 +2,7 @@ import { fetchSinglePost } from "@/lib/actions";
 import Image from "next/image";
 import Link from "next/link";
 
-const PostDetail = async ({ params }) => {
+const PostDetail = async ({ params }: {params: {id: string}}) => {
   const id = params?.id;
   const post = await fetchSinglePost(id);
   return (
