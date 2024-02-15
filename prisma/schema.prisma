@@ -12,14 +12,9 @@ datasource db {
 
 model Post {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
-
   title       String
   imageUrl    String
-  description String?
-
-  comments    Comment[]
-  likes       Int @default(0)
-  approved  Boolean @default(true)
+  description String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt 
 }
@@ -29,8 +24,6 @@ model Post {
 model Comment {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
   comment String
-  post    Post?   @relation(fields: [postId], references: [id])
-  postId  String @db.ObjectId
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

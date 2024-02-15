@@ -3,22 +3,23 @@
 import prisma from "./prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { TPost } from "./types";
 
-interface FormDataValues {
-  title: string;
-  imageUrl: string;
-  description: string;
-}
+// interface FormDataValues {
+//   title: string;
+//   imageUrl: string;
+//   description: string;
+// }
 
 export const fetchPosts = async () => {
-  const posts = await prisma.post.findMany({});
+  const posts = await prisma.post.findMany({}) as TPost[]
   return posts;
 };
 
 export const fetchSinglePost = async (id: string) => {
   const post = await prisma.post.findFirst({
     where: { id },
-  });
+  }) as TPost
   return post;
 };
 

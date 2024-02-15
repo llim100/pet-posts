@@ -1,5 +1,6 @@
 import { fetchSinglePost } from "@/lib/actions";
 import UpdatePostForm from "@/components/forms/UpdatePostForm";
+import { TPost } from "@/lib/types";
 
 const UpdatePostPage = async ({ params }: {params: {id: string}}) => {
   const id = params?.id;
