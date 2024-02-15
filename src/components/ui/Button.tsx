@@ -1,5 +1,10 @@
 'use client';
-const Button = ({ label, color }) => {
+interface TButton {
+  label: string;
+  color: string;
+}
+
+const Button = ({ label, color }: TButton) => {
   return (
     <button
       style={{ color: color }}
